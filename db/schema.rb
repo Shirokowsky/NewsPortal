@@ -40,10 +40,15 @@ ActiveRecord::Schema.define(version: 20151028150925) do
   add_index "categories", ["commentable_id", "commentable_type"], name: "index_categories_on_commentable_id_and_commentable_type", using: :btree
 
   create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
+
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "nickname"

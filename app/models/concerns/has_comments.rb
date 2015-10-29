@@ -1,5 +1,5 @@
 module Has_comments
-  def self.Included(base)
+  def self.included(base)
     base.class_eval do
       has_many :comments, as: :commentable
 

@@ -3,6 +3,8 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :get_parent
 
+  include Gotcomments
+
   respond_to :html
 
   def index
@@ -14,6 +16,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    got_comments(@article)
     respond_with(@article)
   end
 

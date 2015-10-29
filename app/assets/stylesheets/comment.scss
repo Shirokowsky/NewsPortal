@@ -1,0 +1,13 @@
+.comment {
+  display: block;
+  background: whitesmoke;
+  padding: 1em;
+  div {
+    display: block;
+    border-top: 1px solid black;
+    padding-top: 1em;
+    p {
+      display: block;
+    }
+  }
+}
