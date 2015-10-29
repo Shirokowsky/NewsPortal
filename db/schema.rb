@@ -20,18 +20,24 @@ ActiveRecord::Schema.define(version: 20151028150925) do
     t.string   "title"
     t.string   "description"
     t.text     "text"
-    t.boolean  "accepted",    default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "accepted",         default: false
+    t.integer  "patternable_id"
+    t.string   "patternable_type"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
-  add_index "articles", ["title"], name: "index_articles_on_title", using: :btree
+  add_index "articles", ["patternable_id", "patternable_type"], name: "index_articles_on_patternable_id_and_patternable_type", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
+
+  add_index "categories", ["commentable_id", "commentable_type"], name: "index_categories_on_commentable_id_and_commentable_type", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.string   "text"
@@ -41,7 +47,7 @@ ActiveRecord::Schema.define(version: 20151028150925) do
 
   create_table "users", force: :cascade do |t|
     t.string   "nickname"
-    t.string   "role"
+    t.boolean  "admin"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false

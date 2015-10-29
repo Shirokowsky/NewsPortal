@@ -1,0 +1,14 @@
+- content_for :menu
+  = link_to edit_article_path(@article)
+    = fa_icon 'pencil'
+
+h1 = @article.title
+p = @article.accepted
+b = @article.description
+p = @article.text.html_safe
+
+- if user_signed_in? && current_user.admin
+  = form_for @article, remote: true do |f|
+    div
+      = f.check_box :accepted
+      = f.label :accept

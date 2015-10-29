@@ -4,7 +4,7 @@ nav
       li
         = link_to 'Home', root_path
       li
-        = link_to 'Articles', root_path
+        = link_to 'Articles', articles_path
     ul
       - if user_signed_in?
         li = yield :menu

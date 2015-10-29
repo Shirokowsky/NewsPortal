@@ -1,0 +1,8 @@
+- content_for :menu
+  = link_to new_article_path
+    = fa_icon 'plus'
+
+h1  Articles here
+section
+  ul
+    = render partial: 'articles/article', collection: @articles

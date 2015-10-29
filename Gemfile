@@ -23,6 +23,8 @@ gem 'will_paginate'
 gem 'normalize-rails', '~> 3.0'
 gem 'autoprefixer-rails', '~> 6.0'
 gem 'font-awesome-rails'
+gem 'redactor-rails', '0.4.5'
+#gem 'ckeditor_rails'
 
 # gem 'capistrano-rails', group: :development
 

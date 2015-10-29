@@ -1,0 +1,13 @@
+= form_for([@user, @article]) do |f|
+  - if @article.errors.any?
+    div id='error_explanation'
+      h2 = pluralize(@article.errors.count, 'error')
+      | prohi this article from being saved
+      ul
+        - @article.errors.full_messages.each do |error|
+          li = message
+
+  = f.text_field :title, required: true, autofocus: true, placeholder: 'title'
+  = f.text_field :description, required: true, placeholder: 'description'
+  = f.text_area :text, id:'kfc', class:'redactor', required: true, rows: 30, placeholder: 'text'
+  = f.submit 'OK'

@@ -1,4 +1,5 @@
 /*
+  *= require redactor-rails
  *= require_tree .
  *= require_self
 */
@@ -15,7 +16,7 @@ $dark: #222;
 }
 
 body {
-  background: darken($white, 15%);
+  background: darken($white, 5%);
   color: $dark;
   font-family: 'Open Sans', sans-serif;
   font-size: 0.9em;
@@ -61,17 +62,25 @@ li {
   list-style-type: none;
 }
 form {
-  div {
-    padding: 1em;
-  }
-  .field_with_errors {
-    padding: 0;
-  }
   text-align: center;
+  //div { padding: 1em;} // deprecated
+  .field_with_errors { padding: 0; }
+  label {
+    display: inline-block;
+  }
+  textarea, input {
+    padding: 1em;
+    box-sizing: border-box;
+  }
+  textarea {
+    display: block;
+    width: 100%;
+  }
   input[type='email'], input[type='password'], input[type='text'] {
     background: none;
     border: none;
     border-bottom: 1px solid $dark;
+    width: 100%;
   }
   input[type='submit'] {
     @extend .bttn;
@@ -146,5 +155,20 @@ main {
   width: 640px;
   top: 5em;
   margin: auto;
-  border: 1px solid black;
+  //border: 1px solid black;
+}
+
+.redactor-editor, .redactor-box, .redactor_box {
+  background: none;
+  margin-top: 1em;
+  text-align: justify;
+  padding: 20px 0;
+  height: 25em;
+  overflow: auto;
+}
+.redactor-toolbar {
+  background: $dark;
+  li a {
+    color: $white
+  }
 }

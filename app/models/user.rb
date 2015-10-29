@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
   has_many :comments
 
   validates :nickname, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+  validates :admin, default: false
 end
