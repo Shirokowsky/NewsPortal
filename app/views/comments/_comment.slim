@@ -1,9 +1,10 @@
 div
+  aside
+    i = comment.created_at
   - if comment.user_id?
     - user = User.find_by_id(comment.user_id)
     b = user.nickname
   - else
     b 'anon'
-  i = comment.created_at
 
   = simple_format(comment.text)

@@ -19,3 +19,9 @@ users = User.create([
     password_confirmation: '12345678',
   }
 ])
+
+categories = Category.create([
+  { title:'sport' },
+  { title:'science' },
+  { title:'space' }
+])

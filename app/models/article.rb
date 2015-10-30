@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
-  include Has_comments
+  include HasComments
+  include HasCategories
   
   belongs_to :patternable, polymorphic: true
 

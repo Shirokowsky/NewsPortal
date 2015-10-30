@@ -10,4 +10,5 @@
   = f.text_field :title, required: true, autofocus: true, placeholder: 'title'
   = f.text_field :description, required: true, placeholder: 'description'
   = f.text_area :text, id:'kfc', class:'redactor', required: true, rows: 30, placeholder: 'text'
+  = f.collection_check_boxes :category_ids, Category.all, :id, :title
   = f.submit 'OK'

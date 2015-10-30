@@ -22,6 +22,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = @parent.articles.build
+    @category = Category.new
     respond_with(@article)
   end
 
@@ -31,6 +32,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = @parent.articles.build(article_params)
+    @category = Category.new
     redirect_to @article if @article.save
   end
 
@@ -56,15 +58,15 @@ class ArticlesController < ApplicationController
 
   def valid_user
     unless @article.patternable_id == current_user.id || current_user.admin?
-      redirect_to root_path, notice: 'Only owner or moderator can do that'
+      redirect_to root_path, notice: 'Only owner or admin can do that'
     end
   end
 
   def article_params
     if current_user.admin?
-      params.require(:article).permit(:title, :description, :text, :accepted)
+      params.require(:article).permit(:title, :description, :text, :accepted, category_ids:[])
     else
-      params.require(:article).permit(:title, :description, :text)
+      params.require(:article).permit(:title, :description, :text, category_ids:[])
     end
   end
 

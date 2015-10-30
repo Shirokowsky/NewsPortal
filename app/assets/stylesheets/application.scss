@@ -25,6 +25,8 @@ body {
 h1 {
   font-weight: 100;
   font-size: 3.5em;
+  color: lighten($dark, 40%);
+  margin: 0 0 0.5em;
 }
 h2 {
   font-weight: 100;
@@ -38,7 +40,7 @@ b {
 }
 a {
   color: $dark;
-  padding: 1em;
+  //padding: 1em;
   display: inline-block;
 }
 .center {
@@ -110,7 +112,7 @@ nav, footer {
   color: $white;
   section {
     position: relative;
-    width: 640px;
+    //width: 640px;
     display: block;
     margin: auto;
     ul {
@@ -155,7 +157,14 @@ main {
   width: 640px;
   top: 5em;
   margin: auto;
-  //border: 1px solid black;
+  section {
+    display: block;
+    margin: 0 0 1em;
+    aside {
+      display: block;
+      float: right;
+    }
+  }
 }
 
 .redactor-editor, .redactor-box, .redactor_box {

@@ -1,0 +1,6 @@
+- content_for :menu
+  = link_to new_category_path
+    = fa_icon 'plus'
+
+h1 Categories
+= render partial: 'categories/category', collection: @categories

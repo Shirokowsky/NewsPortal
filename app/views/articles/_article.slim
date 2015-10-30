@@ -1,5 +1,14 @@
-li
+section
   - if article.accepted
-    = link_to article.title, article
+    aside
+      - article.categories.each do |cat|
+        i = cat.title
+    h2
+      = link_to article.title, article
+    p = article.description
   - else
-    = link_to 'unaccepted ' + article.title, article
+    - if current_user.admin?
+      aside
+        p unaccepted
+      h2
+        = link_to article.title, article

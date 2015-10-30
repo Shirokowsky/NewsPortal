@@ -1,4 +1,4 @@
-h1 welcome
-p simple p-tag
-b simple b-tag
-= link_to 'simple link', root_path
+- content_for :nav
+  - @categories.each do |cat|
+    li
+      = link_to cat.title, cat

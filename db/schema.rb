@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028150925) do
+ActiveRecord::Schema.define(version: 20151029191245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,21 +23,31 @@ ActiveRecord::Schema.define(version: 20151028150925) do
     t.boolean  "accepted",         default: false
     t.integer  "patternable_id"
     t.string   "patternable_type"
+    t.integer  "categorable_id"
+    t.string   "categorable_type"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
   end
 
-  add_index "articles", ["patternable_id", "patternable_type"], name: "index_articles_on_patternable_id_and_patternable_type", using: :btree
+  add_index "articles", ["categorable_type", "categorable_id"], name: "index_articles_on_categorable_type_and_categorable_id", using: :btree
+  add_index "articles", ["patternable_type", "patternable_id"], name: "index_articles_on_patternable_type_and_patternable_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "category_links_count"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
-  add_index "categories", ["commentable_id", "commentable_type"], name: "index_categories_on_commentable_id_and_commentable_type", using: :btree
+  create_table "category_links", force: :cascade do |t|
+    t.integer  "category_id"
+    t.integer  "categorable_id"
+    t.string   "categorable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "category_links", ["categorable_type", "categorable_id"], name: "index_category_links_on_categorable_type_and_categorable_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -48,7 +58,7 @@ ActiveRecord::Schema.define(version: 20151028150925) do
     t.datetime "updated_at",       null: false
   end
 
-  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
+  add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "nickname"

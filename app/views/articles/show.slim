@@ -3,6 +3,8 @@
     = fa_icon 'pencil'
 
 h1 = @article.title
+= render partial: 'categories/category', collection: @article.categories
+
 p = @article.accepted
 b = @article.description
 p = @article.text.html_safe

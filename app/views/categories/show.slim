@@ -1,0 +1,8 @@
+- content_for :nav
+  - @categories.each do |cat|
+    li
+      = link_to cat.title, cat
+
+h1 = @category.title
+
+= render partial:'articles/article', collection: @articles
