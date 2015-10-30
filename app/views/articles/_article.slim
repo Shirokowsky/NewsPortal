@@ -3,12 +3,11 @@ section
     aside
       - article.categories.each do |cat|
         i = cat.title
-    h2
+    h3
       = link_to article.title, article
     p = article.description
   - else
-    - if current_user.admin?
       aside
         p unaccepted
-      h2
+      h3
         = link_to article.title, article

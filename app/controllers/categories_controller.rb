@@ -10,7 +10,11 @@ class CategoriesController < ApplicationController
   def show
     @categories = Category.all
     #@articles = Article.where(categorable_id: @category.id)
-    @articles = @category.articles
+    if user_signed_in? && current_user.admin?
+      @articles = @category.articles.paginate(page: params[:page])
+    else
+      @articles = @category.articles.accepted.paginate(page: params[:page])
+    end
   end
 
   def new

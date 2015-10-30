@@ -1,5 +1,6 @@
 /*
-  *= require redactor-rails
+ *= require redactor-rails
+ *= require normalize-rails
  *= require_tree .
  *= require_self
 */
@@ -25,12 +26,16 @@ body {
 h1 {
   font-weight: 100;
   font-size: 3.5em;
-  color: lighten($dark, 40%);
+  color: lighten($dark, 60%);
   margin: 0 0 0.5em;
 }
 h2 {
   font-weight: 100;
   font-size: 2em;
+}
+h3 {
+  font-weight: 100;
+  font-size: 1.5em;
 }
 p {
   font-weight: 100;
@@ -160,6 +165,7 @@ main {
   section {
     display: block;
     margin: 0 0 1em;
+    overflow: auto;
     aside {
       display: block;
       float: right;

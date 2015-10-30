@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
 
   def index
     if user_signed_in? && current_user.admin?
-      @articles= Article.all
+      @articles= Article.all.paginate(page: params[:page])
     else
       @articles = Article.accepted
     end

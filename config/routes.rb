@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'profile', to: 'users#edit', as: 'profile'
+
   resources :articles do
     resources :comments
     resources :categories
