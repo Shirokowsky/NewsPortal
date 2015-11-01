@@ -14,6 +14,8 @@ p = @article.text.html_safe
     div
       = f.check_box :accepted
       = f.label :accept
+      = f.check_box :rejected
+      = f.label :reject
 
 div class='comment'
   = render partial: 'comments/comment', collection: @comments, locals: {local:@article}

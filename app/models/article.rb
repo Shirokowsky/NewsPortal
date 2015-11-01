@@ -8,6 +8,7 @@ class Article < ActiveRecord::Base
 
   default_scope { order(created_at: :asc)}
   scope :accepted, -> {where(accepted: true)}
+  scope :rejected, -> {where(rejected: true)}
 
   self.per_page = 5
 end

@@ -9,13 +9,13 @@
 users = User.create([
   { nickname: 'Admin',
     email: 'admin@example.com',
-    password: '12345678',
+    password: '123',
     password_confirmation: '12345678',
     admin: true
   },
   { nickname: 'User',
     email: 'user@example.com',
-    password: '12345678',
+    password: '123',
     password_confirmation: '12345678',
   }
 ])

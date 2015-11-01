@@ -1,7 +1,6 @@
 /*
  *= require redactor-rails
  *= require normalize-rails
- *= require_tree .
  *= require_self
 */
 
@@ -185,5 +184,23 @@ main {
   background: $dark;
   li a {
     color: $white
+  }
+}
+
+.comment {
+  display: block;
+  background: whitesmoke;
+  padding: 1em;
+  div {
+    display: block;
+    border-top: 1px solid black;
+    padding-top: 1em;
+    aside {
+      display: block;
+      float: right;
+    }
+    p {
+      display: block;
+    }
   }
 }

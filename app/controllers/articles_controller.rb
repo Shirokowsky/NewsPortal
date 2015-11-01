@@ -64,7 +64,7 @@ class ArticlesController < ApplicationController
 
   def article_params
     if current_user.admin?
-      params.require(:article).permit(:title, :description, :text, :accepted, category_ids:[])
+      params.require(:article).permit(:title, :description, :text, :accepted, :rejected, category_ids:[])
     else
       params.require(:article).permit(:title, :description, :text, category_ids:[])
     end

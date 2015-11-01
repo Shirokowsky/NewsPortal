@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   end
   resources :categories
 
+
   devise_for :users
+  ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

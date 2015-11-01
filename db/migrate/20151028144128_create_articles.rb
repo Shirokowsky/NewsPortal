@@ -5,6 +5,7 @@ class CreateArticles < ActiveRecord::Migration
       t.string :description
       t.text :text
       t.boolean :accepted, default: false
+      t.boolean :rejected, default: false
       t.references :patternable, polymorphic: true, index: true
       t.references :categorable, polymorphic: true, index: true
 
